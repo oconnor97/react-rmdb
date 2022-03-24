@@ -5,7 +5,7 @@ import TMDBLogo from "../../images/tmdb_logo.svg";
 
 import { Wrapper, Content, LogoImg, TMDBLogoImg } from "./Header-styles";
 
-function Header() {
+const Header = () => {
   return (
     <Wrapper>
       <Content>
@@ -14,6 +14,6 @@ function Header() {
       </Content>
     </Wrapper>
   );
-}
+};
 
 export default Header;

@@ -5,6 +5,7 @@ import { POSTER_SIZE, BACKDROP_SIZE, IMAGE_BASE_URL } from "../config";
 // Components
 import HeroImage from "./HeroImage";
 import Grid from "./Grid";
+import Thumbnail from "./Thumbnail";
 // Hook
 import { useHomeFetch } from "../hooks/useHomeFetch";
 // Image
@@ -25,7 +26,16 @@ const Home = () => {
       ) : null}
       <Grid header="Popular Movies">
         {state.results.map((movie) => (
-          <div key={movie.id}>{movie.title}</div>
+          <Thumbnail
+            key={movie.id}
+            clickable
+            image={
+              movie.poster_path
+                ? IMAGE_BASE_URL + POSTER_SIZE + movie.poster_path
+                : NoImage
+            }
+            movieId={movie.id}
+          />
         ))}
       </Grid>
     </>

@@ -8,6 +8,7 @@ import Spinner from "./Spinner";
 import BreadCrumb from "./BreadCrumb";
 import MovieInfo from "./MovieInfo";
 import MovieInfoBar from "./MovieInfoBar";
+import Actors from "./Actors";
 // Hook
 import { useMovieFetch } from "../hooks/useMovieFetch";
 
@@ -31,6 +32,20 @@ const Movie = () => {
         budget={movie.budget}
         revenue={movie.revenue}
       />
+      <Grid header="Actors">
+        {movie.actors.map((actor) => (
+          <Actors
+            key={actor.creadit_id}
+            name={actor.name}
+            character={actor.character}
+            imageUrl={
+              actor.profile_path
+                ? `${IMAGE_BASE_URL}${POSTER_SIZE}${actor.profile_path}`
+                : NoImage
+            }
+          />
+        ))}
+      </Grid>
     </>
   );
 };
